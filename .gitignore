@@ -2,5 +2,7 @@ node_modules/
 dist/
 .vitepress/cache/
 .vitepress/dist/
+.vitepress/sidebar.ts
+graph-data.json
 .DS_Store
 *.log

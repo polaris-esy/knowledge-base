@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vitepress dev",
-    "build": "vitepress build",
+    "gen": "node scripts/generate-graph.mjs",
+    "dev": "node scripts/generate-graph.mjs && vitepress dev",
+    "build": "node scripts/generate-graph.mjs && vitepress build",
     "preview": "vitepress preview"
   },
   "keywords": [],
