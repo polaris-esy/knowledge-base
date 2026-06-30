@@ -23,7 +23,8 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch } from 'vue'
+import { ref, computed, onMounted, onUnmounted, watch } from 'vue'
+import { useData } from 'vitepress'
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 import graphData from '../../../graph-data.json'
@@ -31,6 +32,8 @@ import graphData from '../../../graph-data.json'
 const containerRef = ref(null)
 const searchText = ref('')
 const selectedNode = ref(null)
+const { site } = useData()
+const withBase = (p) => site.value.base + p.replace(/^\//, '')
 
 const categories = graphData.categories
 const catColor = new Map(categories.map(c => [c.name, c.color]))
@@ -763,7 +766,7 @@ function onResize() {
 }
 
 function goToDetail(node) {
-  window.location.href = node.url
+  window.location.href = withBase(node.url)
 }
 
 watch(searchText, filterNodes)

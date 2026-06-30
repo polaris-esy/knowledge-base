@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import sidebar from './sidebar'
 
 export default defineConfig({
+  base: '/knowledge-base/',
   title: '知识图谱',
   description: 'DNA 式个人知识库',
   vite: {
